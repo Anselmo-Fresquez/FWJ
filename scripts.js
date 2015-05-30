@@ -16,7 +16,7 @@ function Arg(message) {
   alert(message);
 }
 
-function Parrot() {
+function LoudParrot() {
   Arg(prompt("Say what?").toUpperCase() + "!!!");
 }
 
@@ -25,6 +25,38 @@ function Greetings(){
   greeting += " It's so very nice to have a guest.";
   greeting += " It's been so long since we've had guests, here.";
   alert(greeting);
+}
+
+function RandomRange(low, high) {
+  var theNumber = Math.round( Math.random() * (high - low)) + low;
+  return theNumber;
+}
+
+function AHundredRandomNumbers() {
+  var low = parseInt(prompt("Random number between:"));
+  var high = parseInt(prompt("and:"));
+  
+  var avg = 0;
+  
+  var theResult = "";
+  
+  for (var i = 1; i <= 100; i++) {
+    var thisNumber = RandomRange(low, high);
+    avg += thisNumber;
+    theResult += thisNumber;
+    if (i == 1000) theResult += ".";
+    else theResult += ", ";
+    if (thisNumber > high) theResult += "<-- TOO HIGH";
+    if (thisNumber < low) theResult += "<-- TOO LOW"; 
+    if (thisNumber == high) theResult += "<-- MAX";
+    if (thisNumber == low) theResult += "<-- MIN";
+    if (i % 10 == 0) theResult += "\n";
+  }
+  
+  theResult += "\n -------------------------";
+  theResult += "Average number: " + avg / 100 + ".";
+  
+  alert(theResult);
 }
 
 function TellMeAStory() {
